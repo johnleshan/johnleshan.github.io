@@ -365,9 +365,18 @@ article .icon {
 }
 
 .project-img {
-  border-radius: 2rem;
+  border-radius: 1rem;
   width: 90%;
   height: 90%;
+}
+
+.project-img-gif {
+  border-radius: 1rem;
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  display: block;
+  margin: 0 auto;
 }
 
 .project-title {
