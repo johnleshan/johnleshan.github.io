@@ -439,3 +439,30 @@ footer {
 footer p {
   text-align: center;
 }
+
+/* Dark theme styles */
+body.dark-mode {
+  background-color: #181818;
+  color: #f1f1f1;
+}
+
+.dark-mode a {
+  color: #90caf9;
+}
+
+.dark-mode header,
+.dark-mode nav,
+.dark-mode .card,
+.dark-mode .button {
+  background-color: #222;
+  color: #f1f1f1;
+  border-color: #333;
+}
+
+.dark-mode button,
+.dark-mode input[type="button"],
+.dark-mode input[type="submit"] {
+  background-color: #333;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
