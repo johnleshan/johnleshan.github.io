@@ -440,29 +440,81 @@ footer p {
   text-align: center;
 }
 
-/* Dark theme styles */
+/* Dark mode: covers all main sections and interactive elements */
 body.dark-mode {
   background-color: #181818;
   color: #f1f1f1;
 }
 
-.dark-mode a {
+body.dark-mode header,
+body.dark-mode nav,
+body.dark-mode footer {
+  background-color: #222;
+  color: #f1f1f1;
+}
+
+body.dark-mode .logo,
+body.dark-mode .title,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode .section__text__p1,
+body.dark-mode .section__text__p2 {
+  color: #f1f1f1;
+}
+
+body.dark-mode .details-container,
+body.dark-mode .about-containers,
+body.dark-mode .color-container,
+body.dark-mode .contact-info-upper-container,
+body.dark-mode .contact-info-container,
+body.dark-mode .btn-container,
+body.dark-mode .btn,
+body.dark-mode .btn-color-1,
+body.dark-mode .btn-color-2,
+body.dark-mode .project-description,
+body.dark-mode .project-img,
+body.dark-mode .project-img-gif {
+  background-color: #222 !important;
+  color: #f1f1f1 !important;
+  border-color: #333 !important;
+}
+
+body.dark-mode a {
   color: #90caf9;
 }
 
-.dark-mode header,
-.dark-mode nav,
-.dark-mode .card,
-.dark-mode .button {
-  background-color: #222;
-  color: #f1f1f1;
-  border-color: #333;
+body.dark-mode .icon,
+body.dark-mode .arrow {
+  filter: brightness(0.8) invert(0.8);
 }
 
-.dark-mode button,
-.dark-mode input[type="button"],
-.dark-mode input[type="submit"] {
+body.dark-mode input,
+body.dark-mode textarea {
+  background-color: #222;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+body.dark-mode button,
+body.dark-mode .btn,
+body.dark-mode .btn-color-1,
+body.dark-mode .btn-color-2 {
   background-color: #333;
   color: #f1f1f1;
   border: 1px solid #444;
+}
+
+body.dark-mode .hamburger-icon span {
+  background: #f1f1f1;
+}
+
+/* Optional: smooth transition */
+body, body * {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
