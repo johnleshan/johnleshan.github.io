@@ -468,21 +468,31 @@ body.dark-mode .section__text__p2 {
   color: #f1f1f1;
 }
 
-body.dark-mode .details-container,
+/* Remove background-color from layout containers in dark mode */
 body.dark-mode .about-containers,
+body.dark-mode .btn-container,
+body.dark-mode .section-container,
+body.dark-mode .experience-details-container {
+  background-color: transparent !important;
+}
+
+/* Keep cards and content containers dark */
+body.dark-mode .details-container,
 body.dark-mode .color-container,
 body.dark-mode .contact-info-upper-container,
 body.dark-mode .contact-info-container,
-body.dark-mode .btn-container,
 body.dark-mode .btn,
 body.dark-mode .btn-color-1,
-body.dark-mode .btn-color-2,
-body.dark-mode .project-description,
-body.dark-mode .project-img,
-body.dark-mode .project-img-gif {
+body.dark-mode .btn-color-2 {
   background-color: #222 !important;
   color: #f1f1f1 !important;
   border-color: #333 !important;
+}
+
+/* Remove background from images in dark mode */
+body.dark-mode .project-img,
+body.dark-mode .project-img-gif {
+  background-color: transparent !important;
 }
 
 body.dark-mode a {
