@@ -20,7 +20,9 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
-        <button id="theme-toggle" aria-label="Toggle dark mode"></button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <img id="theme-toggle-icon" src="./assets/moon.png" alt="Toggle theme" class="theme-icon" />
+        </button>
       </nav>
       <nav id="hamburger-nav">
         <div class="logo">John Leshan</div>
@@ -30,7 +32,9 @@
           <div class="menu-links">
           </div>
         </div>
-        <button id="theme-toggle-mobile" aria-label="Toggle dark mode"></button>
+        <button id="theme-toggle-mobile" aria-label="Toggle dark mode">
+          <img id="theme-toggle-icon-mobile" src="./assets/moon.png" alt="Toggle theme" class="theme-icon" />
+        </button>
       </nav>
     </header>
     <section id="profile">
@@ -398,12 +402,15 @@
 <script>
   // Desktop nav toggle
   const toggleBtn = document.getElementById('theme-toggle');
+  const toggleIcon = document.getElementById('theme-toggle-icon');
   const body = document.body;
   // Mobile nav toggle
   const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
+  const toggleIconMobile = document.getElementById('theme-toggle-icon-mobile');
 
-  function setThemeIcon(isDark, btn) {
-    btn.innerHTML = isDark ? '☀️' : '🌙';
+  function setThemeIcon(isDark, icon) {
+    icon.src = isDark ? './assets/sun.png' : './assets/moon.png';
+    icon.alt = isDark ? 'Light mode' : 'Dark mode';
   }
 
   // Load theme from localStorage
@@ -411,19 +418,19 @@
   if (isDark) {
     body.classList.add('dark-mode');
   }
-  setThemeIcon(isDark, toggleBtn);
-  setThemeIcon(isDark, toggleBtnMobile);
+  setThemeIcon(isDark, toggleIcon);
+  setThemeIcon(isDark, toggleIconMobile);
 
-  function toggleTheme(btn, otherBtn) {
+  function toggleTheme(btn, icon, otherBtn, otherIcon) {
     body.classList.toggle('dark-mode');
     const nowDark = body.classList.contains('dark-mode');
-    setThemeIcon(nowDark, btn);
-    setThemeIcon(nowDark, otherBtn);
+    setThemeIcon(nowDark, icon);
+    setThemeIcon(nowDark, otherIcon);
     localStorage.setItem('theme', nowDark ? 'dark' : 'light');
   }
 
-  toggleBtn.addEventListener('click', () => toggleTheme(toggleBtn, toggleBtnMobile));
-  toggleBtnMobile.addEventListener('click', () => toggleTheme(toggleBtnMobile, toggleBtn));
+  toggleBtn.addEventListener('click', () => toggleTheme(toggleBtn, toggleIcon, toggleBtnMobile, toggleIconMobile));
+  toggleBtnMobile.addEventListener('click', () => toggleTheme(toggleBtnMobile, toggleIconMobile, toggleBtn, toggleIcon));
 </script>
   </body>
 </html>

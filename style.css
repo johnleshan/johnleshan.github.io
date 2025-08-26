@@ -534,13 +534,32 @@ body, body * {
 #theme-toggle-mobile {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  padding: 0;         /* Remove extra space */
+  margin: 0;          /* Remove extra space */
+  width: auto;        /* Only as wide as the icon */
+  height: auto;       /* Only as tall as the icon */
+  display: flex;      /* Center icon */
+  align-items: center; /* Vertically center icon */
+  justify-content: center; /* Horizontally center icon */
   cursor: pointer;
-  margin-left: 1rem;
+  font-size: 1.5rem;
   color: #90caf9;
   vertical-align: middle;
-  padding: 0;
   transition: color 0.3s;
+  /* Remove pointer-events: none */
+}
+
+#theme-toggle img.theme-icon,
+#theme-toggle-mobile img.theme-icon {
+  pointer-events: auto;
+}
+
+#theme-toggle .theme-icon,
+#theme-toggle-mobile .theme-icon {
+  display: inline-block;
+  vertical-align: middle;
+  transition: filter 0.3s;
+  filter: none; /* Remove drop-shadow and color filter */
 }
 
 body.dark-mode #theme-toggle,
@@ -590,6 +609,19 @@ body.dark-mode #theme-toggle-mobile {
 
 body.dark-mode #theme-toggle {
   color: #90caf9;
+}
+
+/* Theme icon styling for nav bar */
+.theme-icon {
+  width: 1.7rem;
+  height: 1.7rem;
+  vertical-align: middle;
+  transition: filter 0.3s;
+  filter: none; /* Remove drop-shadow and color filter */
+}
+
+body.dark-mode .theme-icon {
+  filter: none;
 }
 
 @media (max-width: 800px) {
