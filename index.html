@@ -20,24 +20,18 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
+        <button id="theme-toggle" aria-label="Toggle dark mode"></button>
       </nav>
       <nav id="hamburger-nav">
         <div class="logo">John Leshan</div>
         <div class="hamburger-menu">
           <div class="hamburger-icon" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
           </div>
           <div class="menu-links">
-            <li><a href="#about" onclick="toggleMenu()">About</a></li>
-            <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-            <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
           </div>
         </div>
+        <button id="theme-toggle-mobile" aria-label="Toggle dark mode"></button>
       </nav>
-      <button id="theme-toggle" aria-label="Toggle dark mode">🌙 Dark Mode</button>
     </header>
     <section id="profile">
       <div class="section__pic-container">
@@ -402,21 +396,34 @@
 <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
 <script src="https://mediafiles.botpress.cloud/9e130f9f-71fd-4779-bb00-8faf88a2a572/webchat/config.js" defer></script>
 <script>
+  // Desktop nav toggle
   const toggleBtn = document.getElementById('theme-toggle');
   const body = document.body;
+  // Mobile nav toggle
+  const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
 
-  // Load theme from localStorage
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-mode');
-    toggleBtn.textContent = '☀️ Light Mode';
+  function setThemeIcon(isDark, btn) {
+    btn.innerHTML = isDark ? '☀️' : '🌙';
   }
 
-  toggleBtn.addEventListener('click', () => {
+  // Load theme from localStorage
+  const isDark = localStorage.getItem('theme') === 'dark';
+  if (isDark) {
+    body.classList.add('dark-mode');
+  }
+  setThemeIcon(isDark, toggleBtn);
+  setThemeIcon(isDark, toggleBtnMobile);
+
+  function toggleTheme(btn, otherBtn) {
     body.classList.toggle('dark-mode');
-    const isDark = body.classList.contains('dark-mode');
-    toggleBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  });
+    const nowDark = body.classList.contains('dark-mode');
+    setThemeIcon(nowDark, btn);
+    setThemeIcon(nowDark, otherBtn);
+    localStorage.setItem('theme', nowDark ? 'dark' : 'light');
+  }
+
+  toggleBtn.addEventListener('click', () => toggleTheme(toggleBtn, toggleBtnMobile));
+  toggleBtnMobile.addEventListener('click', () => toggleTheme(toggleBtnMobile, toggleBtn));
 </script>
   </body>
 </html>

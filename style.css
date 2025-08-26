@@ -528,3 +528,75 @@ body.dark-mode .hamburger-icon span {
 body, body * {
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
+
+/* Theme toggle button in nav bar */
+#theme-toggle,
+#theme-toggle-mobile {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  color: #90caf9;
+  vertical-align: middle;
+  padding: 0;
+  transition: color 0.3s;
+}
+
+body.dark-mode #theme-toggle,
+body.dark-mode #theme-toggle-mobile {
+  color: #90caf9;
+}
+
+#desktop-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 17vh;
+  padding: 0 4rem;
+}
+
+#desktop-nav .logo {
+  flex: 1;
+  text-align: left;
+}
+
+#desktop-nav .nav-links {
+  flex: 2;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+#theme-toggle {
+  flex: 1;
+  text-align: right;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 0;
+  color: #90caf9;
+  vertical-align: middle;
+  padding: 0;
+  transition: color 0.3s;
+  display: inline-block;
+}
+
+body.dark-mode #theme-toggle {
+  color: #90caf9;
+}
+
+@media (max-width: 800px) {
+  #theme-toggle {
+    display: none;
+  }
+  #theme-toggle-mobile {
+    display: inline-block;
+  }
+}
