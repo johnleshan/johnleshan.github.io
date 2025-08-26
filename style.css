@@ -136,14 +136,7 @@ a:hover {
 
 .hamburger-icon span:first-child {
   transform: none;
-}
-
-.hamburger-icon span:first-child {
   opacity: 1;
-}
-
-.hamburger-icon span:first-child {
-  transform: none;
 }
 
 /* SECTIONS */
@@ -616,4 +609,8 @@ body.dark-mode .theme-icon {
   #theme-toggle-mobile {
     display: inline-block;
   }
+}
+
+a, .btn, button, input, textarea {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
